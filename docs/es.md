@@ -8,8 +8,8 @@ bases de datos de Enfermedades Transmitidas por Vector del SINAVE. Es parte del
 !!! note "En desarrollo"
     Listos: la lectura y agregación de casos (módulo 1), el número
     reproductivo efectivo, Rt (módulo 2), y los focos activos de transmisión
-    con el diagnóstico del escenario epidemiológico (módulo 3). Siguen las
-    gráficas.
+    con el diagnóstico del escenario epidemiológico (módulo 3), y las
+    principales gráficas y mapas (módulo 4).
 
 ## Instalación
 

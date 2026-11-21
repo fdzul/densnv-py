@@ -9,3 +9,6 @@
 3. Module 3: `mp_active_foci()` (DBSCAN / ST-DBSCAN, Knox test, zones,
    blocks and diagnosis of the epidemiological scenario), with an interactive
    map (folium, optional).
+4. Module 4: graphs (`plt_heatmap()`, `plt_pyramid()`, `plt_serotype()`,
+   `plt_treemap()`) and maps (`mp_bumpmap()`, `mp_cases_loc()`,
+   `mp_serotype()`); each returns the table behind the figure.

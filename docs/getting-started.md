@@ -69,3 +69,25 @@ res["blocks"]                    # blocks to treat
 res["diagnostico"]["tabla"]      # scenario, criteria and action
 res["map"]                       # interactive map (pip install folium)
 ```
+
+## Graphs and maps
+
+Each function returns the table behind the figure (`data`) and the figure.
+
+```bash
+pip install "densnv[plots] @ git+https://github.com/fdzul/densnv-py"   # plotly, squarify, folium
+```
+
+```python
+ds = densnv.read_sinave("~/sinave/2026/DENGUE2_.txt")
+
+densnv.plt_heatmap(ds, state="YUCATAN", year=2026, status=[1, 2])["figure"]   # plotly
+densnv.plt_pyramid(ds, title="Casos confirmados")["figure"]                   # matplotlib
+densnv.plt_serotype(ds, year=2026)["figure"]
+densnv.plt_treemap(ds, country=True, year=2026)["figure"]
+densnv.mp_bumpmap(ds, year=2026)["figure"]
+
+loc = densnv.cases_by_loc("~/sinave/2026/DENGUE2_.txt", "DENV")
+densnv.mp_cases_loc(loc, var="probable", top_n=10)["map"]                    # folium
+densnv.mp_serotype("~/sinave/2026/DENGUE2_.txt", cve_edo="31")["map"]
+```

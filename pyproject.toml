@@ -34,7 +34,8 @@ dependencies = [
 
 [project.optional-dependencies]
 map = ["folium>=0.17"]
-test = ["pytest>=8", "folium>=0.17", "scikit-learn>=1.3"]
+plots = ["plotly>=5", "squarify>=0.4", "folium>=0.17"]
+test = ["pytest>=8", "folium>=0.17", "scikit-learn>=1.3", "plotly>=5", "squarify>=0.4", "mapclassify>=2.6"]
 
 [project.urls]
 Homepage = "https://fdzul.github.io/densnv-py/"

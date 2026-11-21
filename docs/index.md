@@ -8,8 +8,8 @@ in Python. It is the Python version of the R package
 !!! note "In development"
     Ready: reading and aggregating the cases (module 1), the effective
     reproductive number, Rt (module 2), and the active transmission foci
-    with the diagnosis of the epidemiological scenario (module 3). The
-    graphs come next.
+    with the diagnosis of the epidemiological scenario (module 3), and the
+    main graphs and maps (module 4).
 
 ```python
 import densnv
@@ -29,6 +29,8 @@ loc.explore(column="probable")
    transmission and control zones, blocks to treat and diagnosis of the
    epidemiological scenario (focalised, dispersed, generalised, early
    warning) with the operational strategy.
+5. **Graphs and maps:** `plt_heatmap()`, `plt_pyramid()`, `plt_serotype()`,
+   `plt_treemap()`, `mp_bumpmap()`, `mp_cases_loc()` and `mp_serotype()`.
 
 The results are the same as in R: every function is validated against densnv
 with the real SINAVE dataset.
