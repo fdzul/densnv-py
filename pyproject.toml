@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "densnv"
+version = "0.1.0.dev0"
+description = "Exploratory analysis of the SINAVE vector-borne disease datasets of Mexico (Python version of the R package densnv)."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [
+    { name = "Felipe Antonio Dzul Manzanilla", email = "felipe.dzul.m@gmail.com" },
+    { name = "Fabian Correa-Morales", email = "fabiancorrea@msn.com" },
+    { name = "Emmanuel Morales García", email = "emmorales@uv.mx" },
+    { name = "Cecilia Cruz López", email = "ceccruz@uv.mx" },
+    { name = "Héctor Gómez-Dantés", email = "hector.gomez@insp.mx" },
+]
+keywords = ["dengue", "sinave", "mexico", "epidemiology", "vector-borne diseases"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+    "pandas>=2.0",
+    "geopandas>=1.0",
+    "matplotlib>=3.7",
+    "rgeomex @ git+https://github.com/fdzul/rgeomex-py",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://fdzul.github.io/densnv-py/"
+Source = "https://github.com/fdzul/densnv-py"
+Issues = "https://github.com/fdzul/densnv-py/issues"
+"R package" = "https://github.com/fdzul/densnv"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/densnv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["online: needs internet (downloads rgeomex data)"]

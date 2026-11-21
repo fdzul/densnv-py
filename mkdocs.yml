@@ -1,0 +1,56 @@
+site_name: densnv
+site_description: Exploratory analysis of the SINAVE vector-borne disease datasets (Python)
+site_url: https://fdzul.github.io/densnv-py/
+repo_url: https://github.com/fdzul/densnv-py
+repo_name: fdzul/densnv-py
+copyright: Felipe Antonio Dzul Manzanilla · MIT license
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: red
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - scheme: slate
+      primary: red
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Guide:
+      - Getting Started: getting-started.md
+  - Reference: reference.md
+  - About:
+      - Citation: citation.md
+      - Changelog: changelog.md
+      - License: license.md
+  - Español: es.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: numpy
+            show_source: false
+            heading_level: 3
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.highlight
+  - pymdownx.superfences
