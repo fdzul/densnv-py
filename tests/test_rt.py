@@ -28,8 +28,8 @@ def test_constant_incidence_gives_rt_one():
     assert w["rt"] == pytest.approx(1, abs=0.05)
     assert w["fase"] == "Estable"
     assert r["area"] == "MÉRIDA"
-    # once there is a full history of cases inside the period, Rt is 1
-    assert r["rt"]["mean"].iloc[40:].between(0.95, 1.05).all()
+    # the curve starts once there is a full history of cases inside the period
+    assert r["rt"]["mean"].between(0.95, 1.05).all()
 
 
 def test_growth_and_decline():

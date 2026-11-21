@@ -150,7 +150,7 @@ def rt_dengue(dataset: pd.DataFrame, level: str = "country", place: str = "REP",
     -----
     The curve uses weekly sliding windows with at least 10 cases that start
     at least ``mean_si + 2 * std_si`` days after the first date of onset of
-    the dataset; before it the infectiousness of the previous cases is
+    the dataset or of the period, whichever is later; before it the infectiousness of the previous cases is
     unknown and Rt is overestimated. The last days are usually incomplete
     (delay of report), which lowers Rt at the end.
     """
@@ -217,13 +217,16 @@ def rt_dengue(dataset: pd.DataFrame, level: str = "country", place: str = "REP",
 
     # Step 3. Rt
     historia = math.ceil(mean_si + 2 * std_si)
+    # the history counts from the first date of the dataset or of the period
+    # (whichever is later): the cases before the period are not in the incidence
+    inicio_hist = max(datos_ini, per_ini)
     rt = rt_win = None
     if I.sum() > 0 and period_days > window_days:
         t_end = np.arange(8, period_days + 1)
         t_start = t_end - 6
         cum = np.concatenate([[0], np.cumsum(I)])
         casos_w = cum[t_end] - cum[t_start - 1]
-        ok = (casos_w >= 10) & (dates[t_start - 1] >= datos_ini + pd.Timedelta(days=historia))
+        ok = (casos_w >= 10) & (dates[t_start - 1] >= inicio_hist + pd.Timedelta(days=historia))
         if ok.any():
             rt = estimate_r(I, t_start[ok], t_end[ok], mean_si, std_si)
             rt.insert(2, "date_start", dates[rt["t_start"] - 1])
@@ -232,7 +235,7 @@ def rt_dengue(dataset: pd.DataFrame, level: str = "country", place: str = "REP",
                 rt = None
         w = estimate_r(I, [period_days - window_days + 1], [period_days], mean_si, std_si)
         rt_win = None if w.empty else w.iloc[0]
-    if win_ini < datos_ini + pd.Timedelta(days=historia):
+    if win_ini < inicio_hist + pd.Timedelta(days=historia):
         rt_win = None
     if rt_win is None:
         rt_med = rt_inf = rt_sup = np.nan
