@@ -17,3 +17,5 @@
 ::: densnv.estimate_r
 
 ::: densnv.discr_si
+
+::: densnv.mp_active_foci

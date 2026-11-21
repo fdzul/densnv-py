@@ -55,3 +55,17 @@ rt["rt_ventana"]    # Rt of the last 28 days, 95% CrI and phase
 rt["rt"]            # Rt curve (weekly sliding windows)
 rt["figure"]        # matplotlib figure
 ```
+
+## Active transmission foci and epidemiological scenario
+
+```python
+# geocoded cases: columns long, lat, ESTATUS_CASO, FEC_INI_SIGNOS_SINT, CVE_*_REP
+res = densnv.mp_active_foci(z, cve_edo="31", locality="Merida",
+                            temporal_scale=28, buffer_m=0,
+                            method="st-dbscan", n_sim=999, seed=123,
+                            print_map=True)
+res["foci"]                      # active foci, Knox test by focus
+res["blocks"]                    # blocks to treat
+res["diagnostico"]["tabla"]      # scenario, criteria and action
+res["map"]                       # interactive map (pip install folium)
+```

@@ -6,8 +6,9 @@ in Python. It is the Python version of the R package
 [dengueverse](https://fdzul.github.io/dengueverse/).
 
 !!! note "In development"
-    Ready: reading and aggregating the cases (module 1) and the effective
-    reproductive number, Rt (module 2). The active transmission foci and the
+    Ready: reading and aggregating the cases (module 1), the effective
+    reproductive number, Rt (module 2), and the active transmission foci
+    with the diagnosis of the epidemiological scenario (module 3). The
     graphs come next.
 
 ```python
@@ -24,6 +25,10 @@ loc.explore(column="probable")
    (localities), `cases_week()` (weeks).
 3. **Rt:** `rt_dengue()` for the country, a state, a municipality or a
    locality (Cori et al. 2013, the same estimates as EpiEstim).
+4. **Active foci:** `mp_active_foci()`: DBSCAN / ST-DBSCAN, Knox test,
+   transmission and control zones, blocks to treat and diagnosis of the
+   epidemiological scenario (focalised, dispersed, generalised, early
+   warning) with the operational strategy.
 
 The results are the same as in R: every function is validated against densnv
 with the real SINAVE dataset.

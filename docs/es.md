@@ -6,9 +6,10 @@ bases de datos de Enfermedades Transmitidas por Vector del SINAVE. Es parte del
 [dengueverse](https://fdzul.github.io/dengueverse/es/).
 
 !!! note "En desarrollo"
-    Listos: la lectura y agregación de casos (módulo 1) y el número
-    reproductivo efectivo, Rt (módulo 2). Siguen los focos activos de
-    transmisión y las gráficas.
+    Listos: la lectura y agregación de casos (módulo 1), el número
+    reproductivo efectivo, Rt (módulo 2), y los focos activos de transmisión
+    con el diagnóstico del escenario epidemiológico (módulo 3). Siguen las
+    gráficas.
 
 ## Instalación
 
@@ -31,6 +32,12 @@ dataset = densnv.read_sinave("~/sinave/2026/DENGUE2_.txt")
 rt = densnv.rt_dengue(dataset, level="locality", cve_edo="31",
                       cve_mpo="050", cve_loc="0001", window_days=28)
 rt["rt_ventana"]
+
+# focos activos y escenario epidemiológico (casos geocodificados z)
+res = densnv.mp_active_foci(z, cve_edo="31", locality="Merida",
+                            temporal_scale=28, buffer_m=0, method="st-dbscan",
+                            n_sim=999, seed=123, print_map=True)
+res["diagnostico"]["tabla"]
 ```
 
 Las claves geográficas son texto con ceros a la izquierda (`"31"`, `"050"`,

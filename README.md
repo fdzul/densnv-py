@@ -4,8 +4,8 @@
 Python version of the R package [densnv](https://github.com/fdzul/densnv), part
 of the [dengueverse](https://fdzul.github.io/dengueverse/).
 
-> Status: in development. Ready: reading and aggregating the cases, and Rt.
-> The active transmission foci and the graphs come next.
+> Status: in development. Ready: reading and aggregating the cases, Rt and the
+> active transmission foci. The graphs come next.
 
 ## Installation
 

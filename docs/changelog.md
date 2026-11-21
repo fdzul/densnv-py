@@ -6,3 +6,6 @@
    `cases_by_agem()`, `cases_by_loc()` and `cases_week()`.
 2. Module 2: `rt_dengue()`, with `estimate_r()` and `discr_si()` (the
    parametric serial interval method of EpiEstim).
+3. Module 3: `mp_active_foci()` (DBSCAN / ST-DBSCAN, Knox test, zones,
+   blocks and diagnosis of the epidemiological scenario), with an interactive
+   map (folium, optional).
