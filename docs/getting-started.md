@@ -42,3 +42,16 @@ r = densnv.cases_week("~/sinave/2026", mpo="MERIDA", year=2026)
 r["estatus"]        # probable, confirmed and estimated by week
 r["figure"]         # matplotlib figure
 ```
+
+## Effective reproductive number (Rt)
+
+```python
+dataset = densnv.read_sinave("~/sinave/2026/DENGUE2_.txt")
+
+rt = densnv.rt_dengue(dataset, level="locality", place="REP",
+                      cve_edo="31", cve_mpo="050", cve_loc="0001",
+                      window_days=28)
+rt["rt_ventana"]    # Rt of the last 28 days, 95% CrI and phase
+rt["rt"]            # Rt curve (weekly sliding windows)
+rt["figure"]        # matplotlib figure
+```

@@ -6,9 +6,9 @@ in Python. It is the Python version of the R package
 [dengueverse](https://fdzul.github.io/dengueverse/).
 
 !!! note "In development"
-    Module 1 (reading and aggregating the cases) is ready. The effective
-    reproductive number (Rt), the active transmission foci and the graphs
-    come next.
+    Ready: reading and aggregating the cases (module 1) and the effective
+    reproductive number, Rt (module 2). The active transmission foci and the
+    graphs come next.
 
 ```python
 import densnv
@@ -22,6 +22,8 @@ loc.explore(column="probable")
 1. **Read:** `read()`, `read_sinave()`, `read_dengue_dataset()`.
 2. **Aggregate:** `cases_by_agem()` (municipalities), `cases_by_loc()`
    (localities), `cases_week()` (weeks).
+3. **Rt:** `rt_dengue()` for the country, a state, a municipality or a
+   locality (Cori et al. 2013, the same estimates as EpiEstim).
 
 The results are the same as in R: every function is validated against densnv
 with the real SINAVE dataset.

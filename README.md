@@ -4,8 +4,8 @@
 Python version of the R package [densnv](https://github.com/fdzul/densnv), part
 of the [dengueverse](https://fdzul.github.io/dengueverse/).
 
-> Status: in development. Module 1 (reading and aggregating the cases) is
-> ready; Rt, active transmission foci and the graphs come next.
+> Status: in development. Ready: reading and aggregating the cases, and Rt.
+> The active transmission foci and the graphs come next.
 
 ## Installation
 
@@ -35,6 +35,12 @@ loc = densnv.cases_by_loc("DENGUE2_.txt", "DENV", week=range(1, 11))
 # cases by week in a municipality, with the figure
 r = densnv.cases_week("path/to/sinave", mpo="MERIDA", year=2026)
 r["figure"].savefig("merida.png")
+
+# effective reproductive number (Rt) of a locality
+dataset = densnv.read_sinave("DENGUE2_.txt")
+rt = densnv.rt_dengue(dataset, level="locality", cve_edo="31",
+                      cve_mpo="050", cve_loc="0001", window_days=28)
+rt["rt_ventana"]
 ```
 
 ## Data

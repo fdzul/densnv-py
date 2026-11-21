@@ -11,3 +11,9 @@
 ::: densnv.cases_by_loc
 
 ::: densnv.cases_week
+
+::: densnv.rt_dengue
+
+::: densnv.estimate_r
+
+::: densnv.discr_si
