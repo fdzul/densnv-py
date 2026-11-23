@@ -1,5 +1,4 @@
-# densnv (Python)
-
+# densnv (Python) <img src="https://raw.githubusercontent.com/fdzul/densnv-py/main/docs/assets/logo.png" align="right" height="139" alt="" />
 **Exploratory analysis of the SINAVE vector-borne disease datasets of Mexico.**
 Python version of the R package [densnv](https://github.com/fdzul/densnv), part
 of the [dengueverse](https://fdzul.github.io/dengueverse/).
